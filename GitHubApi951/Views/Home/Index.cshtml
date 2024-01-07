@@ -1,0 +1,26 @@
+﻿@model IndexViewModel
+<div class="text-center">
+    <h1 class="display-4">
+        Velkommen! Tast inn et GitHub brukernavn for å se repositories
+        for den brukeren.
+    </h1>
+    <form asp-action="Index">
+        <div>
+            <label asp-for="GithubUsername">GitHub brukernavn:</label>
+            <input asp-for="GithubUsername" />
+        </div>
+    </form>
+
+     <div>
+    <p>@Model.GithubUsername</p>
+    
+    @foreach(var rep in Model.Repositories)    {
+        <p>
+           Name: @rep.Name
+        </p>
+            <p>
+                Id: @rep.Id
+            </p>
+    }
+     </div>
+</div>
